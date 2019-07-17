@@ -10,11 +10,16 @@
 ### 1）拍一段有人脸的视频作为真实的视频，取个名字，放到videos文件夹下；
 ### 2）用手机或者pc翻拍上面的真实视频，这样就可以得到一个假的视频，然后取个不同的名字，放到videos文件夹下，这样videos文件下就会有两个视频文件
 ### （前两步的备注：视频拍个几十秒的就行了，不要太长，不然后面训练模型的时候会比较慢）
-### 3）这一步主要做的是把上两步得到的视频转成训练CNN的图片。修改gather_examples.py文件里了的两个地方，第一是input的default，这个default放的是你视频的位置和名称， 第二是output的default，这个default放到是将视频转成图片的地址。
+### 3）这一步主要做的是把上两步得到的视频转成训练CNN的图片。修改gather_examples.py文件里了的两个地方，第一是input的default，这个default放的是你视频的位置和名称， 第二是output的default，这个default放到是将视频转成图片的地址。如下：
         ap.add_argument("-i", "--input", type=str,default='videos/1.mp4',
               help="path to input video")
         ap.add_argument("-o", "--output", type=str,default='dataset/real',
               help="path to output directory of cropped faces")
+### 4）这一步训练一个人脸识别的深度网络，这个网络是一个拥有两个卷积两个池化两个全连接的深度卷积神经网络，直接运行train_liveness.py
+### 5）这一步就是实时活体检测的过程了，是一个demo，直接运行，如果报错了，那可能是因为windows系统，需要改一下cv2的读取视频流的方法，不会的话百度吧😄，百度上有，因为我昨天百度了。
 
+## 到这里，这个玩具就做好了，enjoy youself！
+
+#### 写的乱七八糟的，凑合着看，好处是我经常来github，遇到问题直接联系我就是，小问题的话我就直接给你解答啦，就这样了。
 
 
